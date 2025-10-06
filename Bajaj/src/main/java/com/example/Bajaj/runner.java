@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -98,12 +99,22 @@ public class runner implements CommandLineRunner {
             e.printStackTrace();
         }
     }
-    @Autowired
+    /*@Autowired
     private Websql websql;
 
     @Override
     public void run(String... args) throws Exception {
         Map<String, Object> result = websql.findHighestSalaryExcludingFirstDay();
+        System.out.println("---- Query Result ----");
+        System.out.println(result);
+    }*/
+
+    @Autowired
+    private Websql1 websql1;
+
+    @Override
+    public void run(String... args) throws Exception {
+        List<Object[]> result = websql1.findYoungerEmployeesCountByDepartment();
         System.out.println("---- Query Result ----");
         System.out.println(result);
     }
